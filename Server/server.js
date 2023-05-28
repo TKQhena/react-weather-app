@@ -1,14 +1,23 @@
 const express = require('express');
 const https = require('https');
-const { url } = require('inspector');
 const request = require('request');
 const app = express();
 
-url = `api.openweathermap.org/data/2.5/forecast/daily?q=${cityname}&cnt=7&appid=${APIkey}`;
+const options = {
+  method: "GET",
+  url: "https://yahoo-weather5.p.rapidapi.com/weather",
+  qs: {
+    location: `${cityname}`,
+    format: "json",
+    u: `${metric}`,
+  },
+  headers: {
+    "X-RapidAPI-Key": "7e978dc152mshbfba3c9c73f0746p19d966jsn71a8411948a8",
+    "X-RapidAPI-Host": "yahoo-weather5.p.rapidapi.com",
+  },
+};
 
-APIkey = `d7c3bf0b33c4fda974496122d123ff28`;
-
-request(url, function (error, response, body) {
+request(options, function (error, response, body) {
   if (error) throw new Error(error);
   console.log(body);
 });
