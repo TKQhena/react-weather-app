@@ -17,7 +17,13 @@ const options = {
   },
 };
 
-request(options, function (error, response, body) {
-  if (error) throw new Error(error);
-  console.log(body);
-});
+app.get('/', (req, res) => {
+    const{ cityname, metric } = req.body;
+    options.qs.location = cityname
+    options.qs.u = metric
+  request(options, function (error, response, body) {
+    if (error) throw new Error(error);
+    res.send(body);
+  });
+})
+
