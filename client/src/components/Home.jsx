@@ -3,6 +3,7 @@ import Header from './Header.jsx';
 import '../App.css';
 import PlanetSection from './PlanetSection.jsx'
 import LocationSection from './LocationSection.jsx'
+import WeatherButton from './WeatherButton.jsx'
 
 function Home() {
   return (
@@ -10,6 +11,7 @@ function Home() {
       <Header />
       <PlanetSection />
       <LocationSection />
+      <WeatherButton />
     </div>
   );
 }
