@@ -1,11 +1,21 @@
 import { useState } from "react";
+import axios from 'axios'
 
 
 function Search (){
-    const { cityname, setCityname } = useState('');
+    function onSearch(){
+        axios.get('/').then((response) => {
+            console.log(response.data)
+        })
+    }
 
     return(
-        `hello`
+        <div>
+            <form action="/" method="get">
+            <input type="text" name="cityname" id="cityname"/>
+            <button onClick={onSearch()}>Search</button>
+            </form>
+        </div>
     )
 }
 
