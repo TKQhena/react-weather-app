@@ -3,8 +3,17 @@ const request = require('request');
 const app = express();
 const port = 3000;
 
-
-
+//Mars Api
+app.get('/', (req, res) => {
+   const url = 'https://api.nasa.gov/insight_weather/?api_key=DEMO_KEY&feedtype=json&ver'; 
+  request(url, (error, response, body) => {
+      if(error) {
+          res.send(error);
+      }
+      res.send(body);
+  })
+})
+//Mars Weather app
 app.get('/', (req, res) => {
     let cityname = req.query.cityname;
     const api = {
@@ -28,7 +37,12 @@ app.get('/', (req, res) => {
     })
     
 })
-
+//Find Current location
+function GetLocation(){
+    navigator.geolocation.getCurrentPosition(function(position){
+       console.log(position);
+    })
+}
 
 
 app.listen(port, () => {
