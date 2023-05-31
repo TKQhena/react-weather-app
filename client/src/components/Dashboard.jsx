@@ -9,5 +9,3 @@ function Dashboard(){
         </div>
     );
 }
-
-//he didn't record the last time as well
