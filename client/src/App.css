@@ -81,28 +81,29 @@ body {
 .planet-cards {
   display: flex;
   justify-content: space-between;
-  width: calc(50% - 10px);
   margin-top: 20px;
-  width: 1200px;
-  height: 300px;
+  height: 200px;
+  margin-left: 121px;
+  margin-right: 100px;
+  align-items: flex-start; /* Add this line */
 }
 
 .planet-card {
   background-color: #000959;
   border-radius: 10px;
   padding: 20px;
+  margin-right: 25px;
 }
 
 .planet-image {
-  width: 500px; /* Set the desired width */
-  height: 500px; /* Set the desired height */
+  
 }
 
 .location-section {
   background-color: #ffffff;
   border-radius: 10px;
   padding: 20px;
-  margin-top: 20px;
+  margin-top: -100px;
 }
 
 .section-heading {
@@ -116,7 +117,7 @@ body {
   width: 80%;
   align-items: center;
   margin: 0 auto;
-  margin-bottom: 20px; /* Add margin-bottom to create more space */
+  margin-bottom: 40px; /* Add margin-bottom to create more space */
 }
 
 .input-container {
@@ -127,7 +128,7 @@ body {
 .input-row {
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 25px;
 }
 
 .input-row label {
@@ -140,4 +141,28 @@ body {
   border-radius: 10px;
   padding: 10px;
   width: 400px; /* Adjust the width of the input box */
+}
+
+.view-button {
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  text-align: center;
+  background-color: #0A007B;
+  color: #ffffff;
+  border-radius: 10px;
+  border: none;
+  align-items: center;
+  height: 45px;
+  width:300px;
+  margin-bottom: 10px; /* Add margin-bottom to create more space */
+}
+
+.earth-image {
+  width: 20em;
+  margin-top: -60px;
+}
+
+.mars-image {
+  width: 18em;
+  margin-top: -40px;
 }
