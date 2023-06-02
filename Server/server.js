@@ -1,35 +1,43 @@
 const express = require('express');
-const request = require('request');
+const cors = require('cors');
+const axios = require('axios');
+require('dotenv').config();
+
+
 const app = express();
-const port = 3000;
+const port = 8000;
 
-
+app.use(cors());
 
 app.get('/', (req, res) => {
-    let cityname = req.query.cityname;
-    const api = {
-        method: 'GET',
-        url:`https://yahoo-weather5.p.rapidapi.com/weather`,
-        qs: {
-            format: 'json',
-            location: cityname,
-            u: 'c',
-        },
-        headers: {
-            'x-rapidapi-host': 'yahoo-weather5.p.rapidapi.com',
-            'x-rapidapi-key': '7e978dc152mshbfba3c9c73f0746p19d966jsn71a8411948a8'
-        }
-    }
-    request(api, (error, response, body) => {
-        if (error) {
-            res.send(error);
-        }
-        res.send(body);
-    })
-    
+  res.json('Hello World!')
 })
 
+app.get('/Search', (req, res) => {
+  const cityname = req.query.location;
+  const units = req.query.unitGroup;
+  console.log(req.query)
+  
+  const options = {
+    method: "GET",
+    url: "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/",
+    params: {
+      unitGroup: units,
+      key: process.env.API_KEY,
+      location: cityname,
+    },
+  };
 
+  axios
+    .request(options)
+    .then(function (response) {
+      res.send(response.data);
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
+    
+})
 
 app.listen(port, () => {
   console.log(`Example app listening on https://localhost:${port}`)
