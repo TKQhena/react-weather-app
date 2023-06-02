@@ -1,0 +1,44 @@
+.information-container{
+    display: flex;
+    align-items: center;
+    height: 300px;
+}
+.information-div{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+#image{
+    width: 7cm;
+    float: right;
+}
+.information-list{
+    text-align: left;
+    list-style: none;
+}
+#temperature{
+    margin-top: 2em;
+}
+.daily-weather-section{
+    width: 80%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 1em;
+}
+.card-img{
+    width: 4em;
+}
+.daily-weather-section>div{
+    background-image: linear-gradient(to bottom right, rgb(120, 163, 237), rgb(39, 89, 128));
+    padding: 10px;
+    border-radius: 15px;
+}
+.headerLogo{
+    width: 80%;
+    margin: auto;
+    border-radius: 15px;
+    background-color: aquamarine;
+}
+.simp_logo{
+    height: 10em;
+}

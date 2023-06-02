@@ -1,5 +1,5 @@
 import React from 'react'
-import './App.css'
+// import './App.css'
 import Search from './components/search.js'
 import Home from './components/Home.jsx'
 import Dashboard from './components/Dashboard.jsx'

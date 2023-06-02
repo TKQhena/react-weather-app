@@ -1,12 +1,16 @@
 import React from 'react';
-import '../App.css';
+import '../styles.css';
 
-import Header from './Header.jsx';
+import InformationSection from './informationSection';
+import DailyWeatherSection from './DailyWeatherSection';
+import Header from './InformationHeader';
 
 function Dashboard(){
     return(
         <div>
             <Header />
+            <InformationSection />
+            <DailyWeatherSection />
         </div>
     );
 }
