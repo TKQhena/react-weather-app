@@ -11,25 +11,24 @@ function LocationSection() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const cityzip = `${zip},${country}`
-
     const options = {
       method: "GET",
-      url: "http://localhost:8000/api",
+      url: "http://localhost:5200/api/Search",
       params: {
-        zip: cityzip,
+        zip: `${zip},${country}`,
         units: "metric"
       },
     };
     axios
       .request(options)
       .then(function (response) {
-        console.log(response.data)
-
+        const data = response.data
+        console.log(data)
       })
       .catch(function (error) {
         console.error(error);
       });
+      
   }
 
     return (

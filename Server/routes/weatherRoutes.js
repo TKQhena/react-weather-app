@@ -10,31 +10,30 @@ router.get('/', (req, res) => {
 })
 
 router.get("/Search", (req, res) => {
-
-  const location = req.query.location;
-  const unitGroup = req.query.units;
+  const cityname = req.query.zip;
+  const unit = req.query.unitGroup;
   console.log(req.query);
 
   const options = {
     method: "GET",
-    url: "api.openweathermap.org/data/2.5/forecast",
+    url: "https://api.openweathermap.org/data/2.5/forecast",
     params: {
-      zip: location,
+      zip: cityname,
       appid: process.env.API_KEY,
-      units: unitGroup,
+      units: unit,
     },
   };
-  
+
   axios
     .request(options)
     .then(function (response) {
       res.send(response.data);
     })
     .catch(function (error) {
-      console.error(error);
+      res.send(error);
     });
-  
 });
+
 
 module.exports = router
 
