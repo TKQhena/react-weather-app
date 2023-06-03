@@ -17,21 +17,21 @@ app.get('/Search', (req, res) => {
   const cityname = req.query.location;
   const units = req.query.unitGroup;
   console.log(req.query)
-  
+
   const options = {
     method: "GET",
-    url: "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/",
+    url: "https://api.openweathermap.org/data/2.5/weather",
     params: {
-      unitGroup: units,
-      key: process.env.API_KEY,
-      location: cityname,
-    },
+       zip: "9499,ZA", 
+       appid: process.env.API_KEY ,
+      units: "metric"
+     },
   };
 
   axios
     .request(options)
     .then(function (response) {
-      res.send(response.data);
+      console.log(response.data);
     })
     .catch(function (error) {
       console.error(error);
