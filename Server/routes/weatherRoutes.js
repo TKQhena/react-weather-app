@@ -11,8 +11,9 @@ router.get('/', (req, res) => {
 
 router.get("/Search", (req, res) => {
   const cityname = req.query.zip;
-  const unit = req.query.units;
+  const unit = req.query.units
   console.log(req.query);
+  
 
   const options = {
     method: "GET",
@@ -30,7 +31,7 @@ router.get("/Search", (req, res) => {
       res.send(response.data);
     })
     .catch(function (error) {
-      res.send(error);
+      res.status(400).send(error);
     });
 });
 

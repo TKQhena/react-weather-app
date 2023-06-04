@@ -9,13 +9,10 @@ import 'react-dropdown/style.css'
 function LocationSection() {
   const [zip, setZip] = useState('');
   const [country, setCountry] = useState('');
-  const [metric,setMetric] = useState('')
+  const [metric, setMetric] = useState('metric')
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if(metric === ''){
-      setMetric(metricUnit[0])
-    }
 
     const weatherOptions = {
       method: "GET",
@@ -29,11 +26,14 @@ function LocationSection() {
     axios
       .request(weatherOptions)
       .then(function (response) {
-        const data = response.data
-        console.log(data)
+        if (response.data.error) {
+          alert(`Location not found: Please check input data`);
+        } else {
+          console.log(response.data);
+        }
       })
       .catch(function (error) {
-        console.error(error);
+        alert(`Location not found: Please check input data`);
       });
       
   }
@@ -41,9 +41,6 @@ function LocationSection() {
   const metricUnit = [
     'metric','imperial'
   ]
-
-  
-
 
     return (
       <form onSubmit={ handleSubmit }>
