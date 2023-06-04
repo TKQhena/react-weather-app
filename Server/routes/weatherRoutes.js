@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
 
 router.get("/Search", (req, res) => {
   const cityname = req.query.zip;
-  const unit = req.query.unitGroup;
+  const unit = req.query.units;
   console.log(req.query);
 
   const options = {

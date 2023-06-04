@@ -2,25 +2,32 @@ import React from 'react';
 import '../App.css';
 import { useState } from 'react';
 import axios from 'axios';
+import Dropdown from 'react-dropdown'
+import 'react-dropdown/style.css'
 
 
 function LocationSection() {
   const [zip, setZip] = useState('');
   const [country, setCountry] = useState('');
+  const [metric,setMetric] = useState('')
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if(metric === ''){
+      setMetric(metricUnit[0])
+    }
 
-    const options = {
+    const weatherOptions = {
       method: "GET",
       url: "http://localhost:5200/api/Search",
       params: {
         zip: `${zip},${country}`,
-        units: "metric"
+        units: metric,
       },
     };
+    console.log(weatherOptions.params);
     axios
-      .request(options)
+      .request(weatherOptions)
       .then(function (response) {
         const data = response.data
         console.log(data)
@@ -30,6 +37,13 @@ function LocationSection() {
       });
       
   }
+
+  const metricUnit = [
+    'metric','imperial'
+  ]
+
+  
+
 
     return (
       <form onSubmit={ handleSubmit }>
@@ -43,6 +57,10 @@ function LocationSection() {
             <div className="input-row">
               <label>Country:</label>
               <input type="text" value={country} onChange={(e) => setCountry(e.target.value)} className="rounded-input" placeholder="Enter country" />
+            </div>
+            <div className="input-row">
+              <label>Temp Units:</label>
+              <Dropdown options={metricUnit} value={metric} onChange={(e) => setMetric(e.value)} />
             </div>
             <div className="input-row">
               <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '10x' }}>
