@@ -10,7 +10,6 @@ function Home() {
       <Header />
       <PlanetSection />
       <LocationSection />
-      <WeatherButton />
     </div>
   );
 }
