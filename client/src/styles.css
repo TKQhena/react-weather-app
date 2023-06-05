@@ -42,3 +42,62 @@
 .simp_logo{
     height: 10em;
 }
+
+/* home-page */
+.header-home{
+    text-align: center;
+    background-color: rgb(167, 231, 242) ;
+}
+.logo-home{
+    height: 25em;
+    border-radius: 25px;
+}
+.section-heading{
+    margin-bottom: 2em;
+    text-align: center;
+}
+.location-section{
+    padding: 3em 0;
+    background-color: rgb(151, 217, 227);
+    border-radius: 25px;
+    width: 70%;
+    margin: auto;
+}
+.input-container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2em;
+}
+.goRight>*{
+    float: right;
+}
+.centre-input{
+    text-align: center;
+    margin: 1em 0;;
+}
+.dropdown{
+    width: 10em;
+    margin: auto;
+}
+.label-element{
+    margin-right: 1em;
+}
+.rounded-input{
+    height: 2.5em;
+    border-radius: 25px;
+    width: 20em;
+    padding: 5px;
+}
+.view-button{
+    padding: 1em 2em;
+    background-color: rgb(76, 76, 236);
+    color: aliceblue;
+    border-radius: 1em;
+}
+.view-button:hover{
+    background-color: lavenderblush;
+    color: black;
+}
+body{
+    background-color: rgb(151, 217, 227);
+}

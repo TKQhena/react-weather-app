@@ -1,9 +1,9 @@
 import React from 'react';
-import '../App.css'
+import '../styles.css';
 
 const WeatherButton = () => {
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '10x' }}>
+    <div className="weather-button">
       <button className="view-button">View Weather</button>
     </div>
   );

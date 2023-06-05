@@ -1,5 +1,5 @@
 import React from 'react';
-import '../App.css';
+import '../styles.css';
 import { useState } from 'react';
 import axios from 'axios';
 import Dropdown from 'react-dropdown'
@@ -57,23 +57,20 @@ function LocationSection() {
         <div className="location-section">
           <h2 className="section-heading">Location</h2>
           <div className="input-container">
-            <div className="input-row">
-              <label>ZIP code:</label>
-              <input type="text" value={zip} onChange={(e) => setZip(e.target.value)} className="rounded-input" placeholder="Enter ZIP code" />
+            <div className="input-row goRight">
+              <label className="label-element">ZIP code: <input type="text" value={zip} onChange={(e) => setZip(e.target.value)} className="rounded-input" placeholder="Enter ZIP code" /></label>
             </div>
             <div className="input-row">
-              <label>Country:</label>
-              <input type="text" value={country} onChange={(e) => setCountry(e.target.value)} className="rounded-input" placeholder="Enter country" />
+              <label className="label-element">Country: <input type="text" value={country} onChange={(e) => setCountry(e.target.value)} className="rounded-input" placeholder="Enter country" /></label>          
             </div>
-            <div className="input-row">
+          </div>
+          <div className="input-row centre-input">
               <label>Temp Units:</label>
-              <Dropdown options={metricUnit} value={metric} onChange={(e) => setMetric(e.value)} />
-            </div>
-            <div className="input-row">
-              <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '10x' }}>
+              <Dropdown className="dropdown input"  options={metricUnit} value={metric} onChange={(e) => setMetric(e.value)} />
+          </div>
+          <br/>
+          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '10x' }}>
                 <button className="view-button" type="submit">View Weather</button>
-              </div>
-            </div>
           </div>
         </div>
       </form>
