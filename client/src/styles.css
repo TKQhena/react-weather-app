@@ -101,3 +101,12 @@
 body{
     background-color: rgb(151, 217, 227);
 }
+.headerLogo{
+    margin-top: 1em;
+}
+.info-title{
+    text-align: center;
+}
+.information-container{
+    margin-bottom: 2em;
+}

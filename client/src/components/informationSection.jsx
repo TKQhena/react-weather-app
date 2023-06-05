@@ -1,11 +1,16 @@
 import React from 'react';
 import rainImg from '../img/rain.png';
+import snowImg from '../img/snow.png';
+import snowImg from '../img/cloudy.png';
+import snowImg from '../img/partlycloudy.png';
+import snowImg from '../img/storm.png';
+import snowImg from '../img/sunny.png';
 import '../styles.css'
 
 function InformationSection() {
     return (
         <section className="information-wrapper">
-            <h2>Information</h2>
+            <h2 className="info-title">Information</h2>
             <div className="information-div">
                 <div className="rain-imageDiv">
                     <img id="image" src={rainImg} alt="Rain_img" />
