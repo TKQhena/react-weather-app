@@ -142,12 +142,12 @@ function LocationSection() {
               <label className="label-element">Country: <input type="text" value={country} onChange={(e) => setCountry(e.target.value)} className="rounded-input" placeholder="Enter country" /></label>          
             </div>
           </div>
-          <div class='input-row centre-input'>
+          <div className='input-row centre-input'>
               <label>Temp Units:</label>
               <Dropdown className="dropdown input"  options={metricUnit} value={metric} onChange={(e) => setMetric(e.value)} />
           </div>
           <br />
-          <div class='input-row centre-input'>
+          <div className='input-row centre-input'>
               <label style={{display: 'block'}} className="label-element">City/Town name:</label>
               <input type="text" value={cityname} onChange={(e) => setCityname(e.target.value)} className="rounded-input" placeholder="Enter city (Optional)*" />
           </div>

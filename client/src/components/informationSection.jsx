@@ -1,10 +1,10 @@
 import React from 'react';
 import rainImg from '../img/rain.png';
 import snowImg from '../img/snow.png';
-import snowImg from '../img/cloudy.png';
-import snowImg from '../img/partlycloudy.png';
-import snowImg from '../img/storm.png';
-import snowImg from '../img/sunny.png';
+import cloudImg from '../img/cloudy.png';
+import partcloudImg from '../img/partlycloudy.png';
+import stormImg from '../img/storm.png';
+import sunnyImg from '../img/sunny.png';
 import '../styles.css'
 
 function InformationSection() {

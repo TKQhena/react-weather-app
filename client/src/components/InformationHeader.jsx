@@ -4,8 +4,8 @@ import '../styles.css'
 
 function Header(){
     return(
-        <header class="headerLogo">
-            <img class="simp_logo" src={logo} alt="Logo" />
+        <header className="headerLogo">
+            <img className="simp_logo" src={logo} alt="Logo" />
         </header>
     );
 }

@@ -9,7 +9,7 @@ function Dashboard(){
     return(
         <div>
             <Header />
-            <InformationSection />
+            {/* <InformationSection /> */}
             <DailyWeatherSection />
         </div>
     );
