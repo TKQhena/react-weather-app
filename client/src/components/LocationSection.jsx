@@ -1,6 +1,6 @@
 import React from 'react';
 import '../styles.css';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import axios from 'axios';
 import Dropdown from 'react-dropdown'
 import 'react-dropdown/style.css'
@@ -18,7 +18,9 @@ function LocationSection() {
   const [cityname, setCityname] = useState('')
   const [tempsign,setTempsign] = useState('')
   const [speed, setSpeed] = useState('')
-
+  const [scroll,setScroll] = useState(false)
+  const pageEnd = useRef()
+  
   
 
   
@@ -73,16 +75,23 @@ function LocationSection() {
             alert("Location not found: Please check input data");
           } else {
             setWeatherData(response.data);
+            setScroll(true)
           }
         })
         .catch(function (error) {
           alert("Location not found: Please check input data");
         });
-
     }      
   }
 
+  useEffect(()=>{
+    pageEnd.current.scrollIntoView({behavior:"smooth"})
+    setScroll(false)
+  },[scroll])
+
+
   function setImage(weatherId){
+    
     const id = parseInt(weatherId);
     if(id<=232){
       return stormImg
@@ -144,13 +153,12 @@ function LocationSection() {
           <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '10x' }}>
                 <button className="view-button" type="submit">View Weather</button>
           </div>
-  
       </form>
 
-      {weatherData && (
+      {weatherData &&(
           <section className="information-wrapper">
             <h2>{weatherData.city.name}, {weatherData.city.country}</h2>
-            <div className="information-div">
+            <div className="information-div" id='weatherview'>
               <div className="rain-imageDiv">
                 <img id="image" src={setImage(weatherData.list[0].weather[0].id)} alt="Rain_img" />
               </div>
@@ -165,7 +173,9 @@ function LocationSection() {
               </div>
             </div>
           </section>
+          
       )}
+      <div ref={pageEnd}></div>
       </div>
       
     );
